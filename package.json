@@ -97,7 +97,8 @@
       "tagName": "v${version}"
     },
     "npm": {
-      "publish": true
+      "publish": true,
+      "skipChecks": true
     },
     "github": {
       "release": true
@@ -106,6 +107,10 @@
       "@release-it/conventional-changelog": {
         "preset": "angular"
       }
+    },
+    "publishConfig": {
+      "access": "public",
+      "registry": "https://registry.npmjs.org"
     }
   },
   "eslintConfig": {
