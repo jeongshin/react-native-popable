@@ -45,7 +45,8 @@
   "license": "MIT",
   "homepage": "https://github.com/jeongshin/react-native-popable#readme",
   "publishConfig": {
-    "registry": "https://registry.yarnpkg.com"
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "@commitlint/config-conventional": "^11.0.0",
