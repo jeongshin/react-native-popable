@@ -22,6 +22,7 @@ export type PopoverProps = {
   numberOfLines?: number;
   visible?: boolean;
   position?: 'top' | 'right' | 'bottom' | 'left';
+  contentStyle?: ViewProps['style'];
 } & ViewProps;
 
 const Popover = React.forwardRef<View, PopoverProps>(function Popover(
@@ -37,6 +38,7 @@ const Popover = React.forwardRef<View, PopoverProps>(function Popover(
     visible = true,
     position = 'bottom',
     style,
+    contentStyle,
     ...extraProps
   },
   ref
@@ -122,11 +124,12 @@ const Popover = React.forwardRef<View, PopoverProps>(function Popover(
         {withCaret && (position === 'bottom' || position === 'right') && caret}
 
         <View
-          style={[
+          style={StyleSheet.flatten([
             styles.content,
             isContentString && styles.contentTextOnly,
             !!backgroundColor && { backgroundColor },
-          ]}
+            contentStyle,
+          ])}
         >
           {isContentString ? (
             <Text numberOfLines={numberOfLines} style={styles.contentText}>
@@ -152,7 +155,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   content: {
-    flex: 1,
+    // flex: 1,
     zIndex: 1,
     backgroundColor: POPOVER_BACKGROUND_COLOR,
     borderRadius: BORDER_RADIUS * 2,
